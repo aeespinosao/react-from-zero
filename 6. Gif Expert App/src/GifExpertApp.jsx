@@ -5,16 +5,15 @@ export const GifExpertApp = () => {
 
     const [categories, setCategories] = useState(["test"]);
 
-    const onAddCategory = () => {
-        setCategories([...categories, 'valorant'])
+    const onAddCategory = (newCategory) => {
+        setCategories([newCategory, ...categories])
     }
 
     return (
         <>
             <h1>GifExpertApp</h1>
 
-            <AddCategory />
-            <button onClick={onAddCategory}>Agregar</button>
+            <AddCategory onNewCategory = { onAddCategory } />
             <ol>
                 { 
                     categories.map(category => { return <li key={ category }>{category}</li> }) 
